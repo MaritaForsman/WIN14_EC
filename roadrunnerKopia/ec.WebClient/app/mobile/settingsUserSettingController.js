@@ -8,6 +8,8 @@
 
         var vm = (function (data) {
             $scope.UserSettings = data;
+
+
         });
     }
 }());
