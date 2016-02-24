@@ -1,0 +1,101 @@
+﻿
+<div class="panel-heading"
+     style="font-size:large">
+    <h3>Dag</h3>
+</div>
+<div class="panel-body">
+    <form class="form-horizontal" name="tripDay" novalidate role="form" show-errors>
+        <div class="form-group">
+            <label for="person" class="col-sm-3 control-label">Användare</label>
+            <div class="col-sm-9">
+                <input type="text" id="personId" name="personId" class="form-control" readonly="readonly" ng-model="vm.tripDay.personId" />
+
+            </div>
+
+
+        </div>
+        <div class="form-group">
+
+            <label for="car" class="col-sm-3 control-label">Bil</label>
+            <div class="col-sm-9">
+                <select name="car" id="car" class="form-control"
+                        ng-model="vm.tripDay.car"
+                        ng-change="changeCar()"
+                        ng-required="true" ng-required="true"
+                        ng-options="car.Number for car in vm.cars"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div ng-controller="DatepickerControll">
+                <label for="date" class="col-sm-3 control-label">Datum</label>
+                <div class="col-sm-9">
+                    <p class="input-group">
+                        <input type="date" class="form-control" id="date" name="date" uib-datepicker-popup ng-model="vm.tripDay.date" is-open="popup.opened" datepicker-options="dateOptions"
+                               required />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mileageStart" class="col-sm-3 control-label">Mätarställning(km) start</label>
+            <div class="col-sm-9">
+                <input type="number" id="mileageStart" name="mileageStart" class="form-control" ng-model="vm.tripDay.mileageStart" ng-required="true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mileageOut" class="col-sm-3 control-label">Mätarställning(km) slut</label>
+            <div class="col-sm-9">
+                <input type="number" id="mileageOut" name="mileageOut" class="form-control" ng-model="vm.tripDay.mileageOut" ng-required="true" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="purpose" class="col-sm-3 control-label">Ärende</label>
+            <div class="col-sm-9">
+                <select name="purpose" id="purpose" class="form-control"
+                        ng-model="vm.tripDay.purpose"
+                        ng-options="purpose.Description for purpose in vm.purposes" ng-required="true"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="route" class="col-sm-3 control-label">Resväg</label>
+            <div class="col-sm-9">
+                <select name="route" id="route" class="form-control"
+                        ng-model="vm.tripDay.route"
+                        ng-options="route.Description for route in vm.routes" ng-required="true"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="project" class="col-sm-3 control-label">Projekt</label>
+            <div class="col-sm-9">
+                <select name="project" id="project" class="form-control"
+                        ng-model="vm.tripDay.project"
+                        ng-change="changeProject()"
+                        ng-options="project.Description for project in vm.projects" ng-required="true"></select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="vm.tripDay.hasDepartment">
+            <label for="project" class="col-sm-3 control-label">Kostnadsställe</label>
+            <div class="col-sm-9">
+                <select name="department" id="department" class="form-control"
+                        ng-model="vm.tripDay.department"
+                        ng-options="department.Description for department in vm.departments" ng-required="true"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="privateDriving" class="col-sm-3 control-label">Privat</label>
+            <div class="col-sm-9">
+                <input type="checkbox" id="privateDriving" value="tripDay.privateDriving" name="privat" ng-model="vm.tripDay.privateDriving" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" ng-click="submit()" class="btn btn-default">Spara</button>
+                <button type="reset" ng-click="clear()" class="btn btn-default">Ångra</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ecDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ecDatabase.dbo.LoginAnr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LoginAnr">
+    <Key>
+      <PropertyRef Name="Anr" />
+    </Key>
+    <Property Name="Anr" Type="int" Nullable="false" />
+    <Property Name="Show" Type="int" />
+    <Property Name="TypeOfUser" Type="int" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CostNr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purpose">
+    <Key>
+      <PropertyRef Name="PurposeId" />
+    </Key>
+    <Property Name="PurposeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Show" Type="bit" />
+    <Property Name="Anr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="RouteId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Show" Type="bit" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ecDatabase.dbo.Trip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="IdNr" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="MilageStart" />
+      <PropertyRef Name="MilageStop" />
+      <PropertyRef Name="Car" />
+      <PropertyRef Name="Project" />
+      <PropertyRef Name="Object" />
+      <PropertyRef Name="Kstnr" />
+      <PropertyRef Name="Customer" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="IdNr" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="MilageStart" Type="int" Nullable="false" />
+    <Property Name="MilageStop" Type="int" Nullable="false" />
+    <Property Name="Car" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Project" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="Object" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="Kstnr" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="Customer" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Privat" Type="bit" />
+    <Property Name="Approved" Type="bit" />
+    <Property Name="Purpose" Type="varchar" MaxLength="50" />
+    <Property Name="Route" Type="varchar" MaxLength="50" />
+    <Property Name="UserProject" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserProject">
+    <Key>
+      <PropertyRef Name="UserProjectId" />
+    </Key>
+    <Property Name="UserProjectId" Type="int" Nullable="false" />
+    <Property Name="Show" Type="bit" />
+    <Property Name="userId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ecDatabaseModelStoreContainer">
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purpose" EntityType="Self.Purpose" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProject" EntityType="Self.UserProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginAnr" EntityType="Self.LoginAnr" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LoginAnr].[Anr] AS [Anr], 
+    [LoginAnr].[Show] AS [Show], 
+    [LoginAnr].[TypeOfUser] AS [TypeOfUser]
+    FROM [dbo].[LoginAnr] AS [LoginAnr]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Trip" EntityType="Self.Trip" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Trip].[IdNr] AS [IdNr], 
+    [Trip].[Date] AS [Date], 
+    [Trip].[MilageStart] AS [MilageStart], 
+    [Trip].[MilageStop] AS [MilageStop], 
+    [Trip].[Car] AS [Car], 
+    [Trip].[Project] AS [Project], 
+    [Trip].[Object] AS [Object], 
+    [Trip].[Kstnr] AS [Kstnr], 
+    [Trip].[Customer] AS [Customer], 
+    [Trip].[UserId] AS [UserId], 
+    [Trip].[Privat] AS [Privat], 
+    [Trip].[Approved] AS [Approved], 
+    [Trip].[Purpose] AS [Purpose], 
+    [Trip].[Route] AS [Route], 
+    [Trip].[UserProject] AS [UserProject]
+    FROM [dbo].[Trip] AS [Trip]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

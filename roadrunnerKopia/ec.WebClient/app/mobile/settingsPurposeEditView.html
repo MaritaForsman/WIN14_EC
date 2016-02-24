@@ -1,0 +1,26 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading"
+         style="font-size:large">
+    </div>
+    <div class="panel-body" ng-controller="settingsPurposeController as vm">
+        <div>
+            <h3>Orsak</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Beskrivning</td>
+                        <td>Show</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="purpose in vm.purposes">
+                        <td>{{purpose.purposeId}}</td>
+                        <td>{{purpose.description}}</td>
+                        <td>{{purpose.show}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

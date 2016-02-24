@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ecDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CostNr" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purpose">
+    <Key>
+      <PropertyRef Name="PurposeId" />
+    </Key>
+    <Property Name="PurposeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Show" Type="Boolean" />
+    <Property Name="Anr" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="RouteId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Show" Type="Boolean" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProject">
+    <Key>
+      <PropertyRef Name="UserProjectId" />
+    </Key>
+    <Property Name="UserProjectId" Type="Int32" Nullable="false" />
+    <Property Name="Show" Type="Boolean" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginAnr">
+    <Key>
+      <PropertyRef Name="Anr" />
+    </Key>
+    <Property Name="Anr" Type="Int32" Nullable="false" />
+    <Property Name="Show" Type="Int32" />
+    <Property Name="TypeOfUser" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="IdNr" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="MilageStart" />
+      <PropertyRef Name="MilageStop" />
+      <PropertyRef Name="Car" />
+      <PropertyRef Name="Project" />
+      <PropertyRef Name="Object" />
+      <PropertyRef Name="Kstnr" />
+      <PropertyRef Name="Customer" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="IdNr" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MilageStart" Type="Int32" Nullable="false" />
+    <Property Name="MilageStop" Type="Int32" Nullable="false" />
+    <Property Name="Car" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Project" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Object" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Kstnr" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Customer" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Privat" Type="Boolean" />
+    <Property Name="Approved" Type="Boolean" />
+    <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserProject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="ecRoadrunnerContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Project" EntityType="Self.Project" />
+    <EntitySet Name="Purpose" EntityType="Self.Purpose" />
+    <EntitySet Name="Route" EntityType="Self.Route" />
+    <EntitySet Name="UserProject" EntityType="Self.UserProject" />
+    <EntitySet Name="LoginAnr" EntityType="Self.LoginAnr" />
+    <EntitySet Name="Trip" EntityType="Self.Trip" />
+  </EntityContainer>
+</Schema>

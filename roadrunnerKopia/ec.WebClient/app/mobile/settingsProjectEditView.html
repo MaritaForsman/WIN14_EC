@@ -1,0 +1,24 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading"
+         style="font-size:large">
+    </div>
+    <div class="panel-body" ng-controller="settingsProjectController as vm">
+        <div>
+            <h3>Projekt</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Projekt</td>
+                        <td>Show</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="settingsproject in vm.settingsprojects">
+                        <td>{{settingsproject.ProjId}}</td>
+                        <td>{{settingsproject.ShowProj}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

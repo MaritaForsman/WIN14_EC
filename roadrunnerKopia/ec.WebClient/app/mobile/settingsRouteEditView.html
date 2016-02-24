@@ -1,0 +1,26 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading"
+         style="font-size:large">
+    </div>
+    <div class="panel-body" ng-controller="settingsRouteController as vm">
+        <div>
+            <h3>Resväg</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>IdNummer</td>
+                        <td>Resväg</td>
+                        <td>Show</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="route in vm.routes">
+                        <td>{{route.routeId}}</td>
+                        <td>{{route.description}}</td>
+                        <td>{{route.show}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

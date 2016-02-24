@@ -1,0 +1,23 @@
+﻿html{
+    font-family: Verdana, Helvetica, sans-serif
+}
+.panel-footer{
+    display: block;
+    text-align:center;
+}
+.img-responsive{
+    max-height: 2em;
+    margin:0 0 0 0;
+    padding: 0 0 0 0;
+    float:left;
+}
+.wizard a {
+    background: #efefef;
+    display: inline-block;
+    margin-right: 5px;
+    min-width: 150px;
+    outline: none;
+    padding: 10px 40px 10px;
+    position: relative;
+    text-decoration: none;
+}

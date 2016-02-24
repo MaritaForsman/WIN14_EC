@@ -1,0 +1,40 @@
+﻿<div class="panel-heading"
+     style="font-size:large" ng-controller="tripAdminApproveController as vm">
+    Lista över Ej godkända resor
+</div>
+<div class="panel-body">
+    <table class="table">   
+        <thead>
+            <tr>
+                <td>IdNr: </td>
+                <td>Datum: </td>
+                <td>Ing Värde: </td>
+                <td>Utg Värde: </td>
+                <td>Bil: </td>
+                <td>Projekt: </td>
+                <td>Kstnr: </td>
+                <td>Anledning/Orsak: </td>
+                <td>Resväg: </td>
+                <td>Person: </td>
+                <td>Privat: </td>
+                <td>Godkänd: </td>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr ng-repeat="trip in vm.approve">
+                <td>{{ trip.idNr }}</td>
+                <td>{{ trip.dateStart}}</td>
+                <td>{{ trip.milageStart}}</td>
+                <td>{{ trip.milageStop}}</td>
+                <td>{{ trip.car}}</td>
+                <td>{{ trip.project}}</td>
+                <td>{{ trip.customer}}</td>
+                <td>{{ trip.purpose}}</td>
+                <td>{{ trip.route}}</td>
+                <td>{{ trip.userid}}</td>
+                <td><input type="checkbox" ng-model="trip.Privat" /></td>
+                <td><input type="checkbox" ng-model="trip.Godkand" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

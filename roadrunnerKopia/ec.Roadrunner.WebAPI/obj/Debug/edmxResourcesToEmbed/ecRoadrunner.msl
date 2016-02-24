@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ecDatabaseModelStoreContainer" CdmEntityContainer="ecRoadrunnerContext">
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="ecDatabaseModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CostNr" ColumnName="CostNr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purposes">
+      <EntityTypeMapping TypeName="ecDatabaseModel.Purpose">
+        <MappingFragment StoreEntitySet="Purpose">
+          <ScalarProperty Name="PurposeId" ColumnName="PurposeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Show" ColumnName="Show" />
+          <ScalarProperty Name="Anr" ColumnName="Anr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="ecDatabaseModel.Route">
+        <MappingFragment StoreEntitySet="Route">
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Show" ColumnName="Show" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="ecDatabaseModel.UserProject">
+        <MappingFragment StoreEntitySet="UserProject">
+          <ScalarProperty Name="UserProjectId" ColumnName="UserProjectId" />
+          <ScalarProperty Name="Show" ColumnName="Show" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginAnrs">
+      <EntityTypeMapping TypeName="ecDatabaseModel.LoginAnr">
+        <MappingFragment StoreEntitySet="LoginAnr">
+          <ScalarProperty Name="Anr" ColumnName="Anr" />
+          <ScalarProperty Name="Show" ColumnName="Show" />
+          <ScalarProperty Name="TypeOfUser" ColumnName="TypeOfUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trips">
+      <EntityTypeMapping TypeName="ecDatabaseModel.Trip">
+        <MappingFragment StoreEntitySet="Trip">
+          <ScalarProperty Name="IdNr" ColumnName="IdNr" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MilageStart" ColumnName="MilageStart" />
+          <ScalarProperty Name="MilageStop" ColumnName="MilageStop" />
+          <ScalarProperty Name="Car" ColumnName="Car" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="Kstnr" ColumnName="Kstnr" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Privat" ColumnName="Privat" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="UserProject" ColumnName="UserProject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
